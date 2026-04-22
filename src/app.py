@@ -54,9 +54,12 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # -----------------------------
 @st.cache_resource
 def load_model():
-     model_path = "models/best_model.pth"
+
+    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+    model_path = os.path.join(BASE_DIR, "models", "best_model.pth")
 
     model = models.resnet18(weights=None)
+
     num_features = model.fc.in_features
     model.fc = nn.Linear(num_features, 2)
 
