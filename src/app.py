@@ -56,7 +56,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 def load_model():
 
     BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-    model_path = os.path.join(BASE_DIR, "models", "best_model.pth")
+    model_path = os.path.join(BASE_DIR, "models", "best_model_v2.pth")
 
     model = models.resnet18(weights=None)
 
